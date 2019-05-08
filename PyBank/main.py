@@ -18,16 +18,21 @@ with open(budget_csv, newline="",encoding="utf-8") as csvfile:
     total_profit = []
     profit_change = []
 
-    total = 0
+    
     for row in csvreader:
         total_profit.append(int(row[1]))
 
     for x in range(len(total_profit)-1):
         profit_change.append(total_profit[x+1]-total_profit[x])
 
+    max_increase = max(profit_change)
+    min_decrease = min(profit_change)
+
     
     print(sum(total_profit))
     print(sum(profit_change)/len(profit_change))
+    print(max_increase)
+    print(min_decrease)
 
     
 
