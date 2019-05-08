@@ -5,21 +5,33 @@ import csv
 #Set path for the file
 budget_csv = os.path.join("..", "PyBank", "budget_data.csv")
 
-#Lists to store data
-
-month = []
-profit_loss = []
-
-
 #Open and Read the csv in block
 with open(budget_csv, newline="",encoding="utf-8") as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
-    row_count = sum(1 for line in open(budget_csv))-1
+    
+    #Skip first row
+    next(csvreader)
 
-    print(row_count)
+    total_months = sum(1 for line in open(budget_csv))-1
+    print(total_months)
 
-    #for row in csvreader:
-        #profit_loss.append(row[1])
+    total_profit = []
+    profit_change = []
+
+    total = 0
+    for row in csvreader:
+        total_profit.append(int(row[1]))
+
+    for x in range(len(total_profit)-1):
+        profit_change.append(total_profit[x+1]-total_profit[x])
+
+    
+    print(sum(total_profit))
+    print(sum(profit_change)/len(profit_change))
+
+    
+
+    
         
         
     
