@@ -39,30 +39,19 @@ with open(budget_csv, newline="",encoding="utf-8") as csvfile:
     print(f"Total Months: {total_months}")
     print(f"Total: ${sum(total_profit)}")
     print(f"Average Change: ${round(avg_change, 2)}")
-    print(f"Greatest Increase in Profits:{months[max_month]} (${max_increase})")
-    print(f"Greatest Increase in Profits:{months[min_month]} (${min_decrease})")
+    print(f"Greatest Increase in Profits: {months[max_month]} (${max_increase})")
+    print(f"Greatest Increase in Profits: {months[min_month]} (${min_decrease})")
 
+    f = open("output.txt", "w")
+    print("Financial Analysis", file=f)
+    print("---------------------------", file=f)
+    print(f"Total Months: {total_months}", file=f)
+    print(f"Total: ${sum(total_profit)}", file=f)
+    print(f"Average Change: ${round(avg_change, 2)}", file=f)
+    print(f"Greatest Increase in Profits: {months[max_month]} (${max_increase})", file=f)
+    print(f"Greatest Increase in Profits: {months[min_month]} (${min_decrease})", file=f)
+    f.close()
 
-
-
-    
-
-    
-        
-        
-    
-
-
-    #The net amount of "Profit/Losses" over the entrie period
-
-
-    #Average of the changes in "Profit/Losses" over the entire period
-
-
-    #greatest increase in profits (date and amount) over the entire period
-
-
-    #greatest decrease in losses (date and amount) over the entire period
 
 
 
